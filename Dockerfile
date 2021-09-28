@@ -105,9 +105,7 @@ RUN set -xe \
     && npm audit fix --force \
     # cleanup 
     && npm cache clean --force \
-    && rm -rf 
-       /tmp/* \
-       /var/tmp/* \
+    && rm -rf /tmp/* /var/tmp/* \
        /opt/shinobi/.git \
        /root/.cache \
        /root/.node-gyp \
