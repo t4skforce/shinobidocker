@@ -98,13 +98,21 @@ RUN set -xe \
     # Install Shinobi app including NodeJS dependencies
     && git clone -b ${APP_BRANCH} https://gitlab.com/Shinobi-Systems/Shinobi.git /opt/shinobi \
     && cd /opt/shinobi \
+    && sed -i 's/\$.help.e.modal('"'"'show'"'"')//g' ./web/pages/blocks/help.ejs \
     && npm install sqlite3 --unsafe-perm \
     && npm install jsonfile edit-json-file ${ARG_ADD_NODEJS_PACKAGES} \
     && npm install --unsafe-perm \
     && npm audit fix --force \
     # cleanup 
-    && rm -rf /tmp/* /var/tmp/* \
-    && npm cache clean --force
+    && npm cache clean --force \
+    && rm -rf 
+       /tmp/* \
+       /var/tmp/* \
+       /opt/shinobi/.git \
+       /root/.cache \
+       /root/.node-gyp \
+       /root/.npm
+    
 
 # Assign working directory
 WORKDIR /opt/shinobi
