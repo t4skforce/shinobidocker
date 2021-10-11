@@ -6,7 +6,7 @@
 
 FROM node:lts-alpine
 
-ARG BUILD_DATE="2021-10-10T11:59:53Z"
+ARG BUILD_DATE="2021-10-11T07:52:20Z"
 
 # Update Shinobi on every container start?
 #   manual:     Update Shinobi manually. New Docker images will always retrieve the latest version.
