@@ -88,13 +88,16 @@ RUN set -xe \
         mariadb-client \
         openrc \
         pkgconfig \
-        python \
+        python3 \
+        py3-pip \
+        py3-setuptools \
         socat \
         sqlite \
         sqlite-dev \
         wget \
         tar \
         xz \
+    && ln -sf /usr/bin/python3 /usr/bin/python \
     #   Nodejs addons
     && npm install -g npm@latest pm2 \
     # Install Shinobi app including NodeJS dependencies
