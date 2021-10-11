@@ -35,6 +35,9 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - 
+        name: Extract branch name
+        run: echo "RELEASE_VERSION=${GITHUB_REF##*/}" >> $GITHUB_ENV
       -
         name: Build and push
         id: docker_build
@@ -43,4 +46,6 @@ jobs:
           push: true
           tags: |
             t4skforce/shinobidocker:latest
+            t4skforce/shinobidocker:${{ env.RELEASE_VERSION }}
             ghcr.io/t4skforce/shinobidocker:latest
+            ghcr.io/t4skforce/shinobidocker:${{ env.RELEASE_VERSION }}
