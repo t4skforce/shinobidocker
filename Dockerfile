@@ -6,7 +6,27 @@
 
 FROM node:lts-alpine
 
+########################################
+#               Build                  #
+########################################
 ARG BUILD_DATE="2021-10-11T07:52:20Z"
+ARG VERSION=""
+########################################
+
+# Basic build-time metadata as defined at http://label-schema.org
+LABEL org.label-schema.schema-version="1.0" \
+    org.label-schema.build-date=${BUILD_DATE} \
+    org.label-schema.docker.dockerfile="/Dockerfile" \
+    org.label-schema.license="AGPL-3.0 License" \
+    org.label-schema.name="shinobidocker" \
+    org.label-schema.vendor="t4skforce" \
+    org.label-schema.version="Shinobi v${VERSION}" \
+    org.label-schema.description="CCTV and NVR in Node.js" \
+    org.label-schema.url="https://github.com/t4skforce/shinobidocker" \
+    org.label-schema.vcs-type="Git" \
+    org.label-schema.vcs-url="https://github.com/t4skforce/shinobidocker.git" \
+    maintainer="t4skforce" \
+    Author="t4skforce"
 
 # Update Shinobi on every container start?
 #   manual:     Update Shinobi manually. New Docker images will always retrieve the latest version.
@@ -45,6 +65,7 @@ ENV APP_UPDATE=$ARG_APP_UPDATE \
     SUBSCRIPTION_ID= \
     PRODUCT_TYPE= \
     TZ=Europe/Vienna
+    
      
 
 WORKDIR /tmp/workdir
