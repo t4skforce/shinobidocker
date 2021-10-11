@@ -10,7 +10,7 @@ FROM node:lts-alpine
 #               Build                  #
 ########################################
 ARG BUILD_DATE="2021-10-11T08:10:52Z"
-ARG VERSION=""
+ARG VERSION="2.0.0"
 ########################################
 
 # Basic build-time metadata as defined at http://label-schema.org
