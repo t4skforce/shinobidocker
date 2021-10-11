@@ -128,7 +128,7 @@ RUN set -xe \
     && npm install sqlite3 --unsafe-perm \
     && npm install jsonfile edit-json-file ${ARG_ADD_NODEJS_PACKAGES} \
     && npm install --unsafe-perm \
-    && npm audit fix --force \
+    && npm audit fix --force || /bin/true \
     # cleanup 
     && npm cache clean --force \
     && rm -rf /tmp/* /var/tmp/* \
