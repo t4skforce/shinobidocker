@@ -129,7 +129,7 @@ RUN set -xe \
     && npm install jsonfile edit-json-file ${ARG_ADD_NODEJS_PACKAGES} \
     #&& npm install --unsafe-perm \
     && npm ci \
-    && npm audit fix --force || /bin/true \
+    && npm audit fix || /bin/true \
     # cleanup 
     && npm cache clean --force \
     && rm -rf /tmp/* /var/tmp/* \
